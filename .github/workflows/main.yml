@@ -16,9 +16,5 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-         
-  build: 
-   runs-on: ubuntu-22.04
-   steps: 
-      - name: Java build
+      - name: java build
         run: mvn clean install
