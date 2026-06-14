@@ -1,0 +1,24 @@
+name: java_project_deployment
+on: workflow_dispatch
+
+jobs:
+  source_code_checkout:
+    runs-on: ubuntu-slim
+    steps:
+      - name: checkout for source code
+        uses: actions/checkout@v4
+      
+  java_setup:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Install Java
+        run: actions/setup-java@v4
+        with:
+         java-version: '17'
+         distribution: 'temurin
+         
+  build: 
+   runs-on: ununtu-slim
+   steps: 
+      - name: Java build
+        run: mvn clean install
